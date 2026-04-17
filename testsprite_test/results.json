@@ -1,0 +1,102 @@
+{
+  "suite": "TestSprite-style project verification",
+  "started_at": "2026-04-17T08:09:14.191Z",
+  "finished_at": "2026-04-17T08:09:27.761Z",
+  "base_url": "http://127.0.0.1:3001",
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "id": "TS-001",
+      "title": "Homepage responds with 200 and renders headline",
+      "status": "passed",
+      "duration_ms": 831,
+      "detail": "Homepage loaded and headline present."
+    },
+    {
+      "id": "TS-002",
+      "title": "GET /api/analyze is method-restricted",
+      "status": "passed",
+      "duration_ms": 4001,
+      "detail": "Method not allowed works as expected."
+    },
+    {
+      "id": "TS-003",
+      "title": "GET /api/ocr is method-restricted",
+      "status": "passed",
+      "duration_ms": 6969,
+      "detail": "Method not allowed works as expected."
+    },
+    {
+      "id": "TS-004",
+      "title": "POST /api/analyze with empty JSON returns validation error",
+      "status": "passed",
+      "duration_ms": 71,
+      "detail": "Missing payload rejected correctly."
+    },
+    {
+      "id": "TS-005",
+      "title": "POST /api/analyze with text/plain payload returns validation error",
+      "status": "passed",
+      "duration_ms": 70,
+      "detail": "Unsupported content type is rejected without server crash."
+    },
+    {
+      "id": "TS-006",
+      "title": "POST /api/analyze multipart non-image file is rejected",
+      "status": "passed",
+      "duration_ms": 376,
+      "detail": "Non-image file upload blocked."
+    },
+    {
+      "id": "TS-007",
+      "title": "POST /api/analyze rejects file larger than upload limit",
+      "status": "passed",
+      "duration_ms": 790,
+      "detail": "Analyze endpoint enforces max upload size."
+    },
+    {
+      "id": "TS-008",
+      "title": "POST /api/ocr with empty form-data returns 400",
+      "status": "passed",
+      "duration_ms": 101,
+      "detail": "OCR endpoint validates required input."
+    },
+    {
+      "id": "TS-009",
+      "title": "TestSprite runner scripts exist and are executable",
+      "status": "passed",
+      "duration_ms": 2,
+      "detail": "testsprite_test runner scripts are present and executable."
+    },
+    {
+      "id": "TS-010",
+      "title": "Static asset /next.svg is served",
+      "status": "passed",
+      "duration_ms": 217,
+      "detail": "Static SVG asset served correctly."
+    },
+    {
+      "id": "TS-011",
+      "title": "Favicon endpoint is served",
+      "status": "passed",
+      "duration_ms": 118,
+      "detail": "Favicon endpoint returned 200."
+    },
+    {
+      "id": "TS-012",
+      "title": "Local MCP data files exist and are non-empty",
+      "status": "passed",
+      "duration_ms": 11,
+      "detail": "mini_glossary.json and risk_rules.json are present and non-empty."
+    },
+    {
+      "id": "TS-013",
+      "title": "Project default upload limit is documented as 10 MB",
+      "status": "passed",
+      "duration_ms": 4,
+      "detail": "Upload limit is documented consistently in project docs."
+    }
+  ]
+}
