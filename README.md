@@ -58,10 +58,14 @@ GEMINI_API_KEY="your-gemini-api-key"
 # GEMINI_MODEL="gemini-2.5-flash"
 # GEMINI_FALLBACK_MODEL="gemini-2.0-flash"
 
-# Optional external enrichment
-# WEB_FETCH_ENABLED="true"
-# OFF_FETCH_LIMIT="3"
 ```
+
+## Flow
+1. Upload image or send `image_url` to `POST /api/analyze`.
+2. OCR route extracts text via OCR.space.
+3. Parser normalizes OCR into domain, ingredients, warnings, claims, a>
+4. Explanation route enriches and returns readable summaries.
+
 
 ## Scripts
 - `pnpm dev` — run Next.js dev server.
@@ -71,17 +75,41 @@ GEMINI_API_KEY="your-gemini-api-key"
 - `pnpm testsprite:mcp:setup` — generate local `.mcp.json` using `TESTSPRITE_API_KEY`.
 - `pnpm testsprite:mcp:verify` — verify TestSprite MCP package is reachable.
 
-## TestSprite MCP
-- For credit-tracked cloud runs, set `TESTSPRITE_API_KEY` and run `pnpm testsprite:mcp:setup`.
-- The setup script updates `.mcp.json` and preserves existing MCP servers.
-- Cloud run inputs live in `testsprite_tests/standard_prd.json` and `testsprite_tests/testsprite_frontend_test_plan.json`.
-- Legacy local JS suite (`testsprite_tests/run_testsuite.mjs` + `TC*.mjs`) has been removed and is no longer used.
+## AI-Powered Testing with TestSprite
+Lablr uses TestSprite MCP for cloud-based, credit-tracked test generation and execution.
 
-## Flow
-1. Upload image or send `image_url` to `POST /api/analyze`.
-2. OCR route extracts text via OCR.space.
-3. Parser normalizes OCR into domain, ingredients, warnings, claims, and language.
-4. Explanation route enriches and returns readable summaries.
+### Setup
+- Set `TESTSPRITE_API_KEY` in your environment.
+- Run `pnpm testsprite:mcp:setup` to generate/update `.mcp.json`.
+- Run `pnpm testsprite:mcp:verify` to verify the MCP package is reachable.
+
+### TestSprite Assets
+- `testsprite_tests/standard_prd.json` stores the standardized PRD used for test generation.
+- `testsprite_tests/testsprite_frontend_test_plan.json` stores the generated frontend/API test plan.
+- `testsprite_tests/TC*.py` stores Python test files generated/restored from the plan.
+- `testsprite_tests/tmp/mcp.log` stores local MCP runtime logs.
+
+### Current Test Case Coverage
+Latest cloud run context: `projectName=lablr`.
+
+| ID | Test Case | Status | Notes |
+| --- | --- | --- | --- |
+| `TC001` | Landing page renders hero and upload section | `Pass` | Passed in latest TestSprite run. |
+| `TC002` | Analyze endpoint rejects `GET` requests | `Pass` | Passed in latest TestSprite run. |
+| `TC003` | OCR endpoint rejects `GET` requests | `Pass` | Passed in latest TestSprite run. |
+| `TC004` | Header brand and navigation links are visible | `Pass` | Passed in latest TestSprite run. |
+| `TC005` | Upload dropzone UI is visible | `Pass` | Passed in latest TestSprite run. |
+| `TC006` | Image URL input is visible and supports typing | `Pass` | Passed in latest TestSprite run. |
+| `TC007` | Run button starts disabled before input | `Pass` | Passed in latest TestSprite run. |
+| `TC008` | Progress section shows the three pipeline steps | `Pass` | Passed in latest TestSprite run. |
+| `TC009` | Results helper section is visible | `Pass` | Passed in latest TestSprite run. |
+| `TC010` | Upload nav link scrolls to upload section | `Pass` | Passed in latest TestSprite run. |
+| `TC011` | Progress nav link scrolls to progress section | `Pass` | Passed in latest TestSprite run. |
+| `TC012` | Results nav link scrolls to results section | `Failed` | URL changed to `#results`, but no `id="results"` section was found on page. |
+| `TC013` | Static assets are served correctly | `Pass` | Passed in latest TestSprite run. |
+
+### Notes
+- The setup script preserves existing MCP server entries in `.mcp.json`.
 
 ## License
 MIT. See `LICENSE`.
