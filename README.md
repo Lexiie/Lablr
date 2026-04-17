@@ -72,7 +72,7 @@ GEMINI_API_KEY="your-gemini-api-key"
 - `pnpm testsprite:mcp:verify` — verify TestSprite MCP package is reachable.
 
 ## TestSprite MCP
-- For credit-tracked hackathon runs, set `TESTSPRITE_API_KEY` and run `pnpm testsprite:mcp:setup`.
+- For credit-tracked cloud runs, set `TESTSPRITE_API_KEY` and run `pnpm testsprite:mcp:setup`.
 - The setup script updates `.mcp.json` and preserves existing MCP servers.
 - Cloud run inputs live in `testsprite_tests/standard_prd.json` and `testsprite_tests/testsprite_frontend_test_plan.json`.
 - Legacy local JS suite (`testsprite_tests/run_testsuite.mjs` + `TC*.mjs`) has been removed and is no longer used.
