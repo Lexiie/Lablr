@@ -89,6 +89,7 @@ This project includes a **13-case** TestSprite-style suite in the root-level `te
 - `testsprite_tests/standard_prd.json` — compact product requirements baseline.
 - `testsprite_tests/run_testsuite.mjs` — suite runner and report generator.
 - `testsprite_tests/run_with_server.sh` — auto-start wrapper for local dev.
+- `testsprite_tests/README.md` — quick QA guide for running and extending the suite.
 - `testsprite_tests/tmp/` — temporary artifacts folder.
 
 ### Test Output Files
