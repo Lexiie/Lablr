@@ -11,7 +11,6 @@
   <img alt="OCR.space" src="https://img.shields.io/badge/OCR.space-API-0EA5E9" />
   <img alt="Gemini" src="https://img.shields.io/badge/Gemini-2.5%20Flash-7C3AED" />
   <img alt="TestSprite MCP" src="https://img.shields.io/badge/TestSprite-MCP-22C55E" />
-  <img alt="Test Suite" src="https://img.shields.io/badge/Test_Suite-13%20cases-16A34A" />
   <img alt="License" src="https://img.shields.io/badge/License-MIT-16A34A" />
 </p>
 
@@ -69,49 +68,14 @@ GEMINI_API_KEY="your-gemini-api-key"
 - `pnpm build` — production build.
 - `pnpm start` — run production server.
 - `pnpm lint` — lint project.
+- `pnpm testsprite:mcp:setup` — generate local `.mcp.json` using `TESTSPRITE_API_KEY`.
+- `pnpm testsprite:mcp:verify` — verify TestSprite MCP package is reachable.
 
-## TestSprite Test Suite
-This project includes a **13-case** TestSprite-style suite in the root-level `testsprite_tests/` folder.
-
-### How To Run
-1. Run with auto-started dev server:
-   - `sh testsprite_tests/run_with_server.sh`
-2. Or, if the server is already running, execute tests directly:
-   - `node testsprite_tests/run_testsuite.mjs`
-3. Package script equivalents:
-   - `pnpm test:testsprite:dev`
-   - `pnpm test:testsprite`
-
-### Suite Layout
-- `testsprite_tests/TC*.mjs` — standalone executable cases.
-- `testsprite_tests/testsprite_frontend_test_plan.json` — plan manifest.
-- `testsprite_tests/standard_prd.json` — compact product requirements baseline.
-- `testsprite_tests/run_testsuite.mjs` — suite runner and report generator.
-- `testsprite_tests/run_with_server.sh` — auto-start wrapper for local dev.
-- `testsprite_tests/README.md` — quick QA guide for running and extending the suite.
-- `testsprite_tests/tmp/` — temporary artifacts folder.
-
-### Test Output Files
-- `testsprite_tests/testsprite-mcp-test-report.md`
-- `testsprite_tests/testsprite-mcp-test-report.html`
-- `testsprite_tests/testsprite-mcp-test-report.json`
-- `testsprite_tests/results.json` (compatibility alias)
-- `testsprite_tests/dev-server.log` (when using the auto-start script)
-
-### Executed Test Cases
-- `TC001` Homepage responds with 200 and includes the main headline.
-- `TC002` `GET /api/analyze` is method-restricted (405).
-- `TC003` `GET /api/ocr` is method-restricted (405).
-- `TC004` `POST /api/analyze` with empty JSON is rejected (400).
-- `TC005` `POST /api/analyze` with `text/plain` is rejected (400).
-- `TC006` `POST /api/analyze` with multipart non-image file is rejected (500 + file type validation message).
-- `TC007` `POST /api/analyze` file larger than upload limit is rejected (500 + file size message).
-- `TC008` `POST /api/ocr` with empty form-data is rejected (400).
-- `TC009` TestSprite runner scripts (`run_testsuite.mjs`, `run_with_server.sh`) exist and are executable.
-- `TC010` Static asset `GET /next.svg` is served (200).
-- `TC011` Favicon endpoint is served (200).
-- `TC012` Local MCP data files (`mini_glossary.json`, `risk_rules.json`) exist and are non-empty.
-- `TC013` Documentation consistently declares default upload limit `OCR_UPLOAD_MAX_MB=10`.
+## TestSprite MCP
+- For credit-tracked hackathon runs, set `TESTSPRITE_API_KEY` and run `pnpm testsprite:mcp:setup`.
+- The setup script updates `.mcp.json` and preserves existing MCP servers.
+- Cloud run inputs live in `testsprite_tests/standard_prd.json` and `testsprite_tests/testsprite_frontend_test_plan.json`.
+- Legacy local JS suite (`testsprite_tests/run_testsuite.mjs` + `TC*.mjs`) has been removed and is no longer used.
 
 ## Flow
 1. Upload image or send `image_url` to `POST /api/analyze`.

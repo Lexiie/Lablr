@@ -7,8 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
-    "test:testsprite": "node testsprite_tests/run_testsuite.mjs",
-    "test:testsprite:dev": "sh testsprite_tests/run_with_server.sh"
+    "testsprite:mcp:setup": "node tools/setup_testsprite_mcp.mjs",
+    "testsprite:mcp:verify": "npx -y @testsprite/testsprite-mcp@latest --help"
   },
   "dependencies": {
     "next": "16.2.4",

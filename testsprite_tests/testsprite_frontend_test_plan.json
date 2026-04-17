@@ -1,29 +1,157 @@
-{
-  "suite_name": "Lablr Frontend + API Smoke Plan",
-  "owner": "TestSprite MCP",
-  "prd": "testsprite_tests/standard_prd.json",
-  "base_url": "${TEST_BASE_URL:-http://127.0.0.1:3000}",
-  "scope": [
-    "Landing page availability",
-    "API method restrictions",
-    "Analyze/OCR validation behavior",
-    "Static asset health",
-    "MCP data file integrity",
-    "Documentation consistency"
-  ],
-  "cases": [
-    { "id": "TC001", "file": "TC001_Homepage_loads_and_displays_main_headline.mjs" },
-    { "id": "TC002", "file": "TC002_Analyze_endpoint_rejects_GET_method.mjs" },
-    { "id": "TC003", "file": "TC003_OCR_endpoint_rejects_GET_method.mjs" },
-    { "id": "TC004", "file": "TC004_Analyze_endpoint_validates_missing_JSON_payload.mjs" },
-    { "id": "TC005", "file": "TC005_Analyze_endpoint_rejects_text_plain_payload.mjs" },
-    { "id": "TC006", "file": "TC006_Analyze_endpoint_rejects_non_image_upload.mjs" },
-    { "id": "TC007", "file": "TC007_Analyze_endpoint_rejects_payload_above_10MB.mjs" },
-    { "id": "TC008", "file": "TC008_OCR_endpoint_requires_file_or_image_url.mjs" },
-    { "id": "TC009", "file": "TC009_Testsprite_scripts_exist_and_are_executable.mjs" },
-    { "id": "TC010", "file": "TC010_Static_asset_next_svg_is_served.mjs" },
-    { "id": "TC011", "file": "TC011_Favicon_endpoint_is_served.mjs" },
-    { "id": "TC012", "file": "TC012_Local_MCP_data_files_exist_and_are_non_empty.mjs" },
-    { "id": "TC013", "file": "TC013_Default_upload_limit_is_documented_as_10MB.mjs" }
-  ]
-}
+[
+  {
+    "id": "TC001",
+    "title": "Landing page renders hero and upload section",
+    "description": "Open the homepage and verify the hero headline, primary CTAs, and upload card are visible.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      "Open '/'",
+      "Verify headline 'Understand any product label in seconds' is visible",
+      "Verify CTA buttons 'Analyze Label' and 'See Results' are visible",
+      "Verify section heading 'Upload product label' is visible"
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Analyze endpoint rejects GET method",
+    "description": "Verify API method restriction for /api/analyze using browser request.",
+    "category": "api",
+    "priority": "High",
+    "steps": [
+      "Navigate to '/api/analyze'",
+      "Verify response status is 405"
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "OCR endpoint rejects GET method",
+    "description": "Verify API method restriction for /api/ocr using browser request.",
+    "category": "api",
+    "priority": "High",
+    "steps": [
+      "Navigate to '/api/ocr'",
+      "Verify response status is 405"
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Header brand and nav links are visible",
+    "description": "Validate top navigation structure and labels.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      "Open '/'",
+      "Verify brand text 'LABLR' is visible",
+      "Verify nav links 'Upload', 'Progress', and 'Results' are visible"
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Upload dropzone UI is visible",
+    "description": "Ensure upload area and helper copy are visible in the upload card.",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      "Open '/'",
+      "Verify drag-and-drop area is visible",
+      "Verify helper text 'or click to browse your files' is visible"
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Image URL input is visible and typed correctly",
+    "description": "Verify URL field for alternate input path.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      "Open '/'",
+      "Verify URL field with placeholder 'https://example.com/label.jpg' is visible",
+      "Verify URL field type is 'url'"
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Run button starts disabled before input",
+    "description": "Validate initial form safety state with no file and no URL.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      "Open '/'",
+      "Verify 'Run Lablr' button exists",
+      "Verify 'Run Lablr' button is disabled on initial load"
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Progress section shows three pipeline steps",
+    "description": "Confirm OCR, Analysis, and Explanation steps render in initial state.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      "Open '/'",
+      "Scroll to progress section",
+      "Verify labels 'OCR', 'Analysis', and 'Explanation' are visible"
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Results section helper content is visible",
+    "description": "Confirm results panel baseline guidance is rendered.",
+    "category": "ui",
+    "priority": "Low",
+    "steps": [
+      "Open '/'",
+      "Scroll to results section",
+      "Verify heading 'Explanation' is visible",
+      "Verify helper text about ingredient cards and risk badges is visible"
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Upload nav link jumps to upload section",
+    "description": "Validate in-page anchor navigation for upload section.",
+    "category": "ui",
+    "priority": "Low",
+    "steps": [
+      "Open '/'",
+      "Click nav link 'Upload'",
+      "Verify viewport focuses section with id 'upload'"
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Progress nav link jumps to progress section",
+    "description": "Validate in-page anchor navigation for progress section.",
+    "category": "ui",
+    "priority": "Low",
+    "steps": [
+      "Open '/'",
+      "Click nav link 'Progress'",
+      "Verify viewport focuses section with id 'progress'"
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Results nav link jumps to results section",
+    "description": "Validate in-page anchor navigation for results section.",
+    "category": "ui",
+    "priority": "Low",
+    "steps": [
+      "Open '/'",
+      "Click nav link 'Results'",
+      "Verify viewport focuses section with id 'results'"
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Static assets are served",
+    "description": "Validate health of static assets required by the UI shell.",
+    "category": "functional",
+    "priority": "Low",
+    "steps": [
+      "Navigate to '/next.svg' and verify status 200",
+      "Navigate to '/favicon.ico' and verify status 200"
+    ]
+  }
+]

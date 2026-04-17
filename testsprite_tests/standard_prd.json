@@ -1,45 +1,12 @@
 {
-  "project": "Lablr",
+  "product_name": "Lablr",
   "version": "1.0",
-  "product_summary": "Lablr helps users decode product labels by combining OCR extraction with ingredient-level explanations and risk context.",
-  "target_users": [
-    "Consumers reading skincare, food, and OTC labels",
-    "Users with ingredient sensitivity concerns",
-    "Users who need fast mobile-friendly label interpretation"
-  ],
-  "core_capabilities": [
-    "Upload image or submit image URL",
-    "Extract text with OCR",
-    "Normalize ingredients, warnings, and claims",
-    "Generate explainable ingredient insights",
-    "Show confidence signals and source context"
-  ],
-  "quality_goals": {
-    "availability": "Landing page and core endpoints are reachable",
-    "validation": "Invalid input paths fail with deterministic errors",
-    "safety": "Oversized and unsupported uploads are blocked",
-    "integrity": "Required MCP data assets are present and readable",
-    "documentation": "Environment defaults and limits are consistent"
-  },
-  "non_goals": [
-    "Replacing medical advice or diagnosis",
-    "Real-time regulatory compliance guarantees",
-    "Decision automation without transparent explanation"
-  ],
-  "test_focus_areas": [
-    "Homepage health",
-    "API method restrictions",
-    "Analyze endpoint payload validation",
-    "OCR endpoint payload validation",
-    "Static assets",
-    "MCP file integrity",
-    "Upload-size default consistency"
-  ],
-  "acceptance_criteria": [
-    "At least 10 and at most 15 executable test cases",
-    "Each case stored as a standalone TC file",
-    "Suite generates markdown, html, and json report artifacts",
-    "All artifacts are saved under testsprite_tests/"
+  "summary": "Lablr helps users decode product labels into plain-language ingredient and risk insights.",
+  "core_requirements": [
+    "Landing page should render with clear hero headline and CTAs.",
+    "User can upload an image or provide an image URL.",
+    "System should provide analysis progress and result output sections.",
+    "API endpoints should validate method and payload constraints."
   ]
 }
 
