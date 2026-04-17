@@ -94,5 +94,5 @@ package-lock.json
 yarn.lock
 bun.lockb
 
-# testsprite runtime artifacts
-testsprite_tests/tmp/
+# testsprite runtime secrets
+testsprite_tests/tmp/config.json
