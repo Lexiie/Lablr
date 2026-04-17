@@ -1,0 +1,29 @@
+{
+  "suite_name": "Lablr Frontend + API Smoke Plan",
+  "owner": "TestSprite MCP",
+  "prd": "testsprite_tests/standard_prd.json",
+  "base_url": "${TEST_BASE_URL:-http://127.0.0.1:3000}",
+  "scope": [
+    "Landing page availability",
+    "API method restrictions",
+    "Analyze/OCR validation behavior",
+    "Static asset health",
+    "MCP data file integrity",
+    "Documentation consistency"
+  ],
+  "cases": [
+    { "id": "TC001", "file": "TC001_Homepage_loads_and_displays_main_headline.mjs" },
+    { "id": "TC002", "file": "TC002_Analyze_endpoint_rejects_GET_method.mjs" },
+    { "id": "TC003", "file": "TC003_OCR_endpoint_rejects_GET_method.mjs" },
+    { "id": "TC004", "file": "TC004_Analyze_endpoint_validates_missing_JSON_payload.mjs" },
+    { "id": "TC005", "file": "TC005_Analyze_endpoint_rejects_text_plain_payload.mjs" },
+    { "id": "TC006", "file": "TC006_Analyze_endpoint_rejects_non_image_upload.mjs" },
+    { "id": "TC007", "file": "TC007_Analyze_endpoint_rejects_payload_above_10MB.mjs" },
+    { "id": "TC008", "file": "TC008_OCR_endpoint_requires_file_or_image_url.mjs" },
+    { "id": "TC009", "file": "TC009_Testsprite_scripts_exist_and_are_executable.mjs" },
+    { "id": "TC010", "file": "TC010_Static_asset_next_svg_is_served.mjs" },
+    { "id": "TC011", "file": "TC011_Favicon_endpoint_is_served.mjs" },
+    { "id": "TC012", "file": "TC012_Local_MCP_data_files_exist_and_are_non_empty.mjs" },
+    { "id": "TC013", "file": "TC013_Default_upload_limit_is_documented_as_10MB.mjs" }
+  ]
+}

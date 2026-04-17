@@ -1,0 +1,117 @@
+{
+  "suite": "TestSprite frontend validation",
+  "started_at": "2026-04-17T09:09:28.542Z",
+  "finished_at": "2026-04-17T09:09:30.273Z",
+  "base_url": "http://127.0.0.1:3000",
+  "summary": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0
+  },
+  "results": [
+    {
+      "id": "TC001",
+      "title": "Homepage loads and displays main headline",
+      "file": "TC001_Homepage_loads_and_displays_main_headline.mjs",
+      "status": "passed",
+      "detail": "Homepage rendered and primary headline detected.",
+      "duration_ms": 358
+    },
+    {
+      "id": "TC002",
+      "title": "Analyze endpoint rejects GET method",
+      "file": "TC002_Analyze_endpoint_rejects_GET_method.mjs",
+      "status": "passed",
+      "detail": "GET /api/analyze returns 405 as expected.",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC003",
+      "title": "OCR endpoint rejects GET method",
+      "file": "TC003_OCR_endpoint_rejects_GET_method.mjs",
+      "status": "passed",
+      "detail": "GET /api/ocr returns 405 as expected.",
+      "duration_ms": 61
+    },
+    {
+      "id": "TC004",
+      "title": "Analyze endpoint validates missing JSON payload",
+      "file": "TC004_Analyze_endpoint_validates_missing_JSON_payload.mjs",
+      "status": "passed",
+      "detail": "Missing JSON fields are rejected with 400.",
+      "duration_ms": 59
+    },
+    {
+      "id": "TC005",
+      "title": "Analyze endpoint rejects text/plain payload",
+      "file": "TC005_Analyze_endpoint_rejects_text_plain_payload.mjs",
+      "status": "passed",
+      "detail": "text/plain payload is rejected without crashing the endpoint.",
+      "duration_ms": 47
+    },
+    {
+      "id": "TC006",
+      "title": "Analyze endpoint rejects non-image upload",
+      "file": "TC006_Analyze_endpoint_rejects_non_image_upload.mjs",
+      "status": "passed",
+      "detail": "Non-image upload is blocked as expected.",
+      "duration_ms": 264
+    },
+    {
+      "id": "TC007",
+      "title": "Analyze endpoint rejects payload above 10MB",
+      "file": "TC007_Analyze_endpoint_rejects_payload_above_10MB.mjs",
+      "status": "passed",
+      "detail": "Upload size limit is enforced at API level.",
+      "duration_ms": 357
+    },
+    {
+      "id": "TC008",
+      "title": "OCR endpoint requires file or image_url",
+      "file": "TC008_OCR_endpoint_requires_file_or_image_url.mjs",
+      "status": "passed",
+      "detail": "OCR endpoint validates missing input.",
+      "duration_ms": 135
+    },
+    {
+      "id": "TC009",
+      "title": "TestSprite runner scripts exist and are executable",
+      "file": "TC009_Testsprite_scripts_exist_and_are_executable.mjs",
+      "status": "passed",
+      "detail": "Runner scripts are present and executable.",
+      "duration_ms": 3
+    },
+    {
+      "id": "TC010",
+      "title": "Static asset next.svg is served",
+      "file": "TC010_Static_asset_next_svg_is_served.mjs",
+      "status": "passed",
+      "detail": "Static SVG endpoint is healthy.",
+      "duration_ms": 70
+    },
+    {
+      "id": "TC011",
+      "title": "Favicon endpoint is served",
+      "file": "TC011_Favicon_endpoint_is_served.mjs",
+      "status": "passed",
+      "detail": "Favicon endpoint returns 200.",
+      "duration_ms": 39
+    },
+    {
+      "id": "TC012",
+      "title": "Local MCP data files exist and are non-empty",
+      "file": "TC012_Local_MCP_data_files_exist_and_are_non_empty.mjs",
+      "status": "passed",
+      "detail": "MCP glossary and risk rules files are present and populated.",
+      "duration_ms": 6
+    },
+    {
+      "id": "TC013",
+      "title": "Default upload limit is documented as 10MB",
+      "file": "TC013_Default_upload_limit_is_documented_as_10MB.mjs",
+      "status": "passed",
+      "detail": "10MB upload limit is documented consistently.",
+      "duration_ms": 5
+    }
+  ]
+}

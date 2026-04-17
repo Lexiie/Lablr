@@ -1,0 +1,63 @@
+# TestSprite MCP Test Report
+
+- Started: 2026-04-17T09:09:28.542Z
+- Finished: 2026-04-17T09:09:30.273Z
+- Base URL: http://127.0.0.1:3000
+- Total Cases: 13
+- Passed: 13
+- Failed: 0
+
+## Case Results
+
+- [PASS] TC001 - Homepage loads and displays main headline
+  - File: TC001_Homepage_loads_and_displays_main_headline.mjs
+  - Detail: Homepage rendered and primary headline detected.
+  - Duration: 358 ms
+- [PASS] TC002 - Analyze endpoint rejects GET method
+  - File: TC002_Analyze_endpoint_rejects_GET_method.mjs
+  - Detail: GET /api/analyze returns 405 as expected.
+  - Duration: 59 ms
+- [PASS] TC003 - OCR endpoint rejects GET method
+  - File: TC003_OCR_endpoint_rejects_GET_method.mjs
+  - Detail: GET /api/ocr returns 405 as expected.
+  - Duration: 61 ms
+- [PASS] TC004 - Analyze endpoint validates missing JSON payload
+  - File: TC004_Analyze_endpoint_validates_missing_JSON_payload.mjs
+  - Detail: Missing JSON fields are rejected with 400.
+  - Duration: 59 ms
+- [PASS] TC005 - Analyze endpoint rejects text/plain payload
+  - File: TC005_Analyze_endpoint_rejects_text_plain_payload.mjs
+  - Detail: text/plain payload is rejected without crashing the endpoint.
+  - Duration: 47 ms
+- [PASS] TC006 - Analyze endpoint rejects non-image upload
+  - File: TC006_Analyze_endpoint_rejects_non_image_upload.mjs
+  - Detail: Non-image upload is blocked as expected.
+  - Duration: 264 ms
+- [PASS] TC007 - Analyze endpoint rejects payload above 10MB
+  - File: TC007_Analyze_endpoint_rejects_payload_above_10MB.mjs
+  - Detail: Upload size limit is enforced at API level.
+  - Duration: 357 ms
+- [PASS] TC008 - OCR endpoint requires file or image_url
+  - File: TC008_OCR_endpoint_requires_file_or_image_url.mjs
+  - Detail: OCR endpoint validates missing input.
+  - Duration: 135 ms
+- [PASS] TC009 - TestSprite runner scripts exist and are executable
+  - File: TC009_Testsprite_scripts_exist_and_are_executable.mjs
+  - Detail: Runner scripts are present and executable.
+  - Duration: 3 ms
+- [PASS] TC010 - Static asset next.svg is served
+  - File: TC010_Static_asset_next_svg_is_served.mjs
+  - Detail: Static SVG endpoint is healthy.
+  - Duration: 70 ms
+- [PASS] TC011 - Favicon endpoint is served
+  - File: TC011_Favicon_endpoint_is_served.mjs
+  - Detail: Favicon endpoint returns 200.
+  - Duration: 39 ms
+- [PASS] TC012 - Local MCP data files exist and are non-empty
+  - File: TC012_Local_MCP_data_files_exist_and_are_non_empty.mjs
+  - Detail: MCP glossary and risk rules files are present and populated.
+  - Duration: 6 ms
+- [PASS] TC013 - Default upload limit is documented as 10MB
+  - File: TC013_Default_upload_limit_is_documented_as_10MB.mjs
+  - Detail: 10MB upload limit is documented consistently.
+  - Duration: 5 ms

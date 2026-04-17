@@ -16,7 +16,7 @@ trap cleanup EXIT INT TERM
 
 cd "$ROOT_DIR"
 
-pnpm dev --hostname 0.0.0.0 --port "$DEV_PORT" > testsprite_test/dev-server.log 2>&1 &
+pnpm dev --hostname 0.0.0.0 --port "$DEV_PORT" > testsprite_tests/dev-server.log 2>&1 &
 DEV_PID=$!
 
 echo "Waiting for dev server at $BASE_URL ..."
@@ -30,5 +30,6 @@ until curl -sSf "$BASE_URL/" >/dev/null 2>&1; do
   sleep 1
 done
 
-echo "Dev server ready. Running tests..."
-node testsprite_test/run_testsuite.mjs
+echo "Dev server ready. Running TestSprite suite..."
+node testsprite_tests/run_testsuite.mjs
+
