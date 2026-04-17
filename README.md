@@ -1,6 +1,10 @@
 <h1 align="center">Lablr</h1>
 
 <p align="center">
+  <img src="assets/hero-screenshot.png" alt="Lablr Hero UI" width="960" />
+</p>
+
+<p align="center">
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-16.2.4-black?logo=nextdotjs" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white" />
   <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?logo=tailwindcss&logoColor=white" />
@@ -19,11 +23,6 @@ Built for everyday consumers, Lablr helps you move from **"What does this label 
 Upload a label photo (or provide an image URL), let OCR extract the raw text, and get structured explanations with risk hints, confidence signals, and source references.
 
 Whether you are scanning skincare, food, or OTC packaging, Lablr is designed to make label intelligence fast, transparent, and practical.
-
-## Hero Screenshot
-<p align="center">
-  <img src="assets/hero-screenshot.png" alt="Lablr Hero UI" width="960" />
-</p>
 
 ## Features
 - OCR with OCR.space (no Mastra pipeline, no Docker/Nosana dependencies).
