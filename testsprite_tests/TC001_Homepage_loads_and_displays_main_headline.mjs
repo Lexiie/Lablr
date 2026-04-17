@@ -18,8 +18,7 @@ export async function run({ baseUrl }) {
   }
 
   expectStatus({ status: lastStatus }, 200, lastBody);
-  expectIncludes(lastBody, "Decode product labels in a single pass", "Homepage headline not found.");
+  expectIncludes(lastBody, "Understand any product label in seconds", "Homepage headline not found.");
 
   return "Homepage rendered and primary headline detected.";
 }
-

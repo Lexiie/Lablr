@@ -172,35 +172,73 @@ export default function LablrPage() {
   return (
     <main className="text-slate-100">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 py-8 sm:py-10">
-        <header className="space-y-4 text-slate-200">
-          <div className="inline-flex items-center rounded-full border border-emerald-700/70 bg-emerald-950/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
-            Label Intelligence
+        <header className="border-y border-emerald-400/25 bg-black/30 px-4 py-8 text-slate-200 sm:px-6 sm:py-10">
+          <div className="space-y-6">
+            <div className="flex items-start gap-5">
+              <span className="mt-1 h-14 w-[3px] rounded-full bg-emerald-400" />
+              <div className="space-y-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-300/80">
+                  Label Intelligence
+                </p>
+                <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">
+                  Understand any product label in seconds
+                </h1>
+              </div>
+            </div>
+
+            <p className="max-w-xl text-sm text-slate-300 sm:text-base">
+              Upload a photo of any food, skincare, or OTC label. Lablr extracts ingredients, checks risk heuristics,
+              and returns plain-language explanations with confidence and safety signals.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#upload"
+                className="inline-flex items-center justify-center border border-emerald-500/80 bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+              >
+                Analyze Label
+              </a>
+              <a
+                href="#results"
+                className="inline-flex items-center justify-center border border-slate-600 bg-black px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-emerald-400/70 hover:text-white"
+              >
+                See Results
+              </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em]">
+              <span className="text-emerald-300">FOOD</span>
+              <span className="text-slate-500">|</span>
+              <span className="text-slate-400">SKINCARE</span>
+              <span className="text-slate-500">|</span>
+              <span className="text-slate-400">OTC</span>
+            </div>
+
+            {(lastInput || latestRiskBadge || language || ocrResult) && (
+              <div className="border-t border-emerald-500/20 pt-4 text-xs text-slate-400">
+                {lastInput && (
+                  <p>
+                    Last input: <span className="font-mono text-slate-200">{lastInput}</span>
+                  </p>
+                )}
+                {latestRiskBadge && (
+                  <p>
+                    Highest flagged: <span className="font-semibold text-emerald-300">{latestRiskBadge.name}</span>
+                  </p>
+                )}
+                {language && (
+                  <p>
+                    Detected language: <span className="font-semibold text-slate-300">{language}</span>
+                  </p>
+                )}
+                {ocrResult && (
+                  <p>
+                    OCR confidence: <span className="font-semibold text-slate-200">{Math.round(ocrResult.confidence * 100)}%</span>
+                  </p>
+                )}
+              </div>
+            )}
           </div>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Decode product labels in a single pass</h1>
-          <p className="max-w-2xl text-sm text-slate-400">
-            Upload a snapshot of any food, cosmetic, or OTC label. Agent A extracts the raw ingredients,
-            Agent B checks glossary hints and risk heuristics, then returns clear explanations with safety badges.
-          </p>
-          {lastInput && (
-            <p className="text-xs text-slate-500">
-              Last input: <span className="font-mono text-slate-300">{lastInput}</span>
-            </p>
-          )}
-          {latestRiskBadge && (
-            <p className="text-xs text-slate-400">
-              Highest flagged ingredient: <span className="font-semibold text-emerald-300">{latestRiskBadge.name}</span>
-            </p>
-          )}
-          {language && (
-            <p className="text-xs text-slate-500">
-              Detected language: <span className="font-semibold text-slate-300">{language}</span>
-            </p>
-          )}
-          {ocrResult && (
-            <p className="text-xs text-slate-500">
-              OCR confidence: <span className="font-semibold text-slate-300">{Math.round(ocrResult.confidence * 100)}%</span>
-            </p>
-          )}
         </header>
 
         <section id="upload" className="scroll-mt-28">

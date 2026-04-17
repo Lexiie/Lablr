@@ -12,7 +12,7 @@
 </p>
 
 ## Overview
-Lablr turns dense, hard-to-read product labels into clear, human-friendly ingredient insights in seconds.
+Lablr turns dense product labels into plain-language ingredient and risk insights in seconds.
 
 Built for everyday consumers, Lablr helps you move from **"What does this label even say?"** to **"I know what this ingredient does and how risky it might be."**
 

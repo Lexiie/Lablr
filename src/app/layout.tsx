@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cabin_Condensed, Geist_Mono } from "next/font/google";
+import { Cabin_Condensed, Geist_Mono, Lilita_One, Varela_Round } from "next/font/google";
 import "./globals.css";
 
 const cabinCondensed = Cabin_Condensed({
@@ -13,9 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const varelaRound = Varela_Round({
+  variable: "--font-varela-round",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const lilitaOne = Lilita_One({
+  variable: "--font-lilita-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Lablr",
-  description: "Drop label photos for quick ingredient insights.",
+  description: "Turn food, skincare, and OTC labels into plain-language ingredient and risk insights.",
 };
 
 export default function RootLayout({
@@ -25,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cabinCondensed.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${cabinCondensed.variable} ${geistMono.variable} ${varelaRound.variable} ${lilitaOne.variable} antialiased`}>
         <div className="min-h-dvh bg-slate-950 text-slate-100">
           <header className="sticky top-0 z-50 border-b border-emerald-900/50 bg-slate-950/95 backdrop-blur-xl">
             <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:py-4">
@@ -33,7 +45,7 @@ export default function RootLayout({
                 <span className="rounded-full border border-emerald-700/70 bg-emerald-950/30 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
                   LABLR
                 </span>
-                <span className="hidden text-sm text-slate-300 sm:inline">Ingredient Decoder</span>
+                <span className="hidden text-sm text-slate-300 sm:inline">Ingredient & Risk Explainer</span>
               </a>
 
               <nav className="hidden items-center gap-1 rounded-full border border-slate-700 bg-slate-900 p-1 sm:flex">

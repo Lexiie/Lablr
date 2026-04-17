@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-cabin-condensed);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-lilita-one);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,4 +33,19 @@ body {
 body,
 html {
   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-varela-round), var(--font-cabin-condensed), Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-display {
+  font-family: var(--font-lilita-one), var(--font-cabin-condensed), Arial, Helvetica, sans-serif;
+  letter-spacing: 0.015em;
 }
